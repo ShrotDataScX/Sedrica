@@ -27,7 +27,7 @@ class Car{
 
     }
     
-    void get_info(){
+    virtual void get_info(){// making this virtual as in future I have to change getinfo method 
         cout<< "make :"<< make<<endl;
         cout<< "model :"<< model<<endl;
         
@@ -60,41 +60,65 @@ class SportsCar: public Car{
 
 
 int main(){
-    SportsCar Ferrari;
-    Ferrari.make="Ferrari";
-    Ferrari.model="Ferrari 849 Testarossa";
-    Ferrari.top_speed=200;
-    Ferrari.get_info();
-    float p_Ferrari;
-    cout<<"Enter original price to be set: ";
-    cin>>p_Ferrari;
-    Ferrari.set_Price(p_Ferrari) ;
-    float percent_discount_Ferrari;
-    cout<<"Enter percentage discount to be applied: ";
-    cin>> percent_discount_Ferrari;
-    cout<<"original price is:"<<Ferrari.get_Price()<<endl;
-    cout<<"Discounted price is:"<<Ferrari.getDiscountedPrice(percent_discount_Ferrari)<<endl;
-    // Ferrari.price  >>>would show error that its not accessible as it is private
-    // cout<<Ferrari.apply.discount(1.2) >>>would also show error that its not accessible as it is private
+//     SportsCar Ferrari;
+//     Ferrari.make="Ferrari";
+//     Ferrari.model="Ferrari 849 Testarossa";
+//     Ferrari.top_speed=200;
+//     Ferrari.get_info();
+//     float p_Ferrari;
+//     cout<<"Enter original price to be set: ";
+//     cin>>p_Ferrari;
+//     Ferrari.set_Price(p_Ferrari) ;
+//     float percent_discount_Ferrari;
+//     cout<<"Enter percentage discount to be applied: ";
+//     cin>> percent_discount_Ferrari;
+//     cout<<"original price is:"<<Ferrari.get_Price()<<endl;
+//     cout<<"Discounted price is:"<<Ferrari.getDiscountedPrice(percent_discount_Ferrari)<<endl;
+//     // Ferrari.price  >>>would show error that its not accessible as it is private
+//     // cout<<Ferrari.apply.discount(1.2) >>>would also show error that its not accessible as it is private
 
-    ElectricCar Tesla;
-    Tesla.make="Tesla";
-    Tesla.model="Tesla Model S";
-    Tesla.battery_range=410;
-    Tesla.get_info();
-    float p_Tesla;
-    cout<<"Enter original price to be set: ";
-    cin>>p_Tesla;
-    Tesla.set_Price(p_Tesla) ;
-    float percent_discount_Tesla;
-    cout<<"Enter percentage discount to be applied: ";
-    cin>> percent_discount_Tesla;
-    cout<<"original price is:"<<Tesla.get_Price()<<endl;
-    cout<<"Discounted price is:"<<Tesla.getDiscountedPrice(percent_discount_Tesla)<<endl;
-    // Tesla.price  >>>would show error that its not accessible as it is private
-    // cout<<Tesla.apply.discount(1.2) >>>would also show error that its not accessible as it is private
-return 0;
+//     ElectricCar Tesla;
+//     Tesla.make="Tesla";
+//     Tesla.model="Tesla Model S";
+//     Tesla.battery_range=410;
+//     Tesla.get_info();
+//     float p_Tesla;
+//     cout<<"Enter original price to be set: ";
+//     cin>>p_Tesla;
+//     Tesla.set_Price(p_Tesla) ;
+//     float percent_discount_Tesla;
+//     cout<<"Enter percentage discount to be applied: ";
+//     cin>> percent_discount_Tesla;
+//     cout<<"original price is:"<<Tesla.get_Price()<<endl;
+//     cout<<"Discounted price is:"<<Tesla.getDiscountedPrice(percent_discount_Tesla)<<endl;
+//     // Tesla.price  >>>would show error that its not accessible as it is private
+//     // cout<<Tesla.apply.discount(1.2) >>>would also show error that its not accessible as it is private
+// return 0;
+Car MS;
+MS.make="Maruti Suzuki";
+MS.model="Alto 800";
+
+ElectricCar Tesla;
+Tesla.make="Tesla";
+Tesla.model="Tesla Model S";
+Tesla.battery_range=410;
+
+SportsCar Ferrari;
+Ferrari.make="Ferrari";
+Ferrari.model="Ferrari 849 Testarossa";
+Ferrari.top_speed=200;
+
+Car* differentTypeCar[3];
+differentTypeCar[0]= &MS;
+differentTypeCar[1]= &Tesla;
+differentTypeCar[2]= &Ferrari;
+
+for(int i=0;i<3;i++){
+    (*(differentTypeCar[i])).get_info();// polymorphism implement; also I could use "this" pointer or  -> symbol
+    cout<<endl;
 }
+}
+
 
 
 
